@@ -12,7 +12,7 @@ inputs:
     default: github-actions
   role-duration-seconds:
     description: duration of the credentials validity
-      required: false
+    required: false
   aws-region:
     description: 'Region to assume'
     required: true
