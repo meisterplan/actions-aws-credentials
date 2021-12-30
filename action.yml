@@ -19,7 +19,8 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: assume OIDC role
+    - run: echo 'assume oidc role'
+    - name: assume oidc role
       uses: aws-actions/configure-aws-credentials@v1
       if: needs.prepare.outputs.isCypressTest == 'true' || needs.prepare.outputs.isPlaywrightTest == 'true'
       with:
@@ -27,7 +28,8 @@ runs:
         role-to-assume: ${{ inputs.role-for-oidc }}
         role-session-name: ${{ inputs.role-session-name }}
         role-duration-seconds: 900
-    - name: assume OIDC role
+    - run: echo 'assume target role'
+    - name: assume target role
       uses: aws-actions/configure-aws-credentials@v1
       if: needs.prepare.outputs.isCypressTest == 'true' || needs.prepare.outputs.isPlaywrightTest == 'true'
       with:
