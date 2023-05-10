@@ -22,14 +22,14 @@ runs:
   using: composite
   steps:
     - name: assume oidc role
-      uses: meisterplan/configure-aws-credentials@v1.6.0-custom
+      uses: aws-actions/configure-aws-credentials@v2.0.0
       with:
         aws-region: ${{ inputs.aws-region }}
         role-to-assume: ${{ inputs.role-for-oidc }}
         role-session-name: ${{ inputs.role-session-name }}
         role-duration-seconds: 900
     - name: assume target role
-      uses: meisterplan/configure-aws-credentials@v1.6.0-custom
+      uses: aws-actions/configure-aws-credentials@v2.0.0
       with:
         aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
